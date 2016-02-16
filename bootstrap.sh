@@ -2,6 +2,7 @@
 
 echo "Provisioning virtual machine..."
 
+apt-get update
 apt-get install debconf-utils -y > /dev/null
 
 echo "Installing Mysql..."
