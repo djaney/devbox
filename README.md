@@ -1,5 +1,10 @@
 # devbox
-vagrant box development tools
+vagrant box for my development tools.
+
+This contains only stuff that I don't want to pollute my host machine with.
+
+Why no PHP? I run PHP on the host machine using `php -S` mainly because it's very slow when I run symfony (or any big project) in the shared folder.
+Why no NPM? I also run NPM in the host because it has issues running in shared folders.
 
 ## Services
 1. MySQL - port: 3306, user: root, password: 1234
