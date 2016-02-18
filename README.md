@@ -1,5 +1,5 @@
 # devbox
-vagrant box for my development tools.
+vagrant box for web development services.
 
 This contains only stuff that I don't want to pollute my host machine with.
 
@@ -9,5 +9,6 @@ Why no NPM? I also run NPM in the host because it has issues running in shared f
 ## Services
 1. MySQL - port: 3306, user: root, password: 1234
 1. Beanstalkd - port: 11300
+1. MongoDB - port: 27017
 
 __watch out for port conflicts__
