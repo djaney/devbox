@@ -5,6 +5,9 @@ echo "Provisioning virtual machine..."
 sudo apt-get update
 sudo apt-get install debconf-utils -y > /dev/null
 
+echo "Installing Build Essential"
+sudo apt-get install build-essential -y > /dev/null
+
 echo "Intalling Git..."
 sudo apt-get install -y git
 git config --global url."https://".insteadOf git://
@@ -29,4 +32,15 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org > /dev/null
 sudo cp /vagrant/mongod.conf /etc/
 sudo service mongod restart
+
+echo "Install Redis"
+wget http://download.redis.io/releases/redis-stable.tar.gz
+tar xzf redis-stable.tar.gz
+cd redis-stable
+make
+make test
+sudo make install > /dev/null
+cd utils
+sudo ./install_server.sh > /dev/null
+cd ~
 echo "Done Provisioning"
