@@ -6,10 +6,15 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/trusty64"
-  config.vm.network :forwarded_port, guest: 3306, host: 3306 #mysql
-  config.vm.network :forwarded_port, guest: 11300, host: 11300 #beanstalkd
-  config.vm.network :forwarded_port, guest: 27017, host: 27017 #mongodb
-  config.vm.network :forwarded_port, guest: 6379, host: 6379  #redis
-  config.vm.provision :shell, path: "bootstrap.sh"
+    config.vm.box = "ubuntu/trusty64"
+    config.vm.network :forwarded_port, guest: 3306, host: 3306 #mysql
+    config.vm.network :forwarded_port, guest: 11300, host: 11300 #beanstalkd
+    config.vm.network :forwarded_port, guest: 27017, host: 27017 #mongodb
+    config.vm.network :forwarded_port, guest: 6379, host: 6379  #redis
+    config.vm.provision :shell, path: "bootstrap.sh"
+
+
+    config.vm.provider "virtualbox" do |v|
+        v.memory = 256
+    end
 end
